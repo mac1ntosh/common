@@ -12,10 +12,16 @@ class OurAwesomeException(Exception):
 
 def is_two_object_has_same_value(first: Any, second: Any) -> bool:
     """
+
     If @first and @second has same value should return True
     In another case should return False
     """
-    pass
+    if first == second:
+        return True
+    else:
+        return False
+
+
 
 
 def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
@@ -23,7 +29,12 @@ def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    pass
+    if first == int and second == int:
+        return True
+    else:
+        return False
+
+
 
 
 def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
@@ -31,7 +42,12 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    pass
+
+    if first is second:
+        return True
+    else:
+        return False
+
 
 
 def multiple_ints(first_value: int, second_value: int) -> int:
@@ -48,7 +64,14 @@ def multiple_ints(first_value: int, second_value: int) -> int:
     Returns:
         Product of elements
     """
-    pass
+    try:
+       if isinstance(first_value,int) and isinstance(second_value,int):
+        return first_value * second_value
+    except ValueError:
+        print('Error')
+
+
+
 
 
 def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
@@ -78,7 +101,12 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
             print("Not valid input data")
         >>> "Not valid input data"
     """
-    pass
+
+        try:
+            return int(first_value)*int(second_value)
+        except ValueError:
+            pass
+        raise ValueError("Invalid data")
 
 
 def is_word_in_text(word: str, text: str) -> bool:
@@ -97,14 +125,21 @@ def is_word_in_text(word: str, text: str) -> bool:
         >>> False
 
     """
-    pass
+    if word in text:
+        return True
+    else:
+        return False
+
+
 
 
 def some_loop_exercise() -> list:
     """
     Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
-    pass
+    return [item for item in range(13) if item !=6 and item !=7]
+
+
 
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
@@ -116,7 +151,13 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
-    pass
+    new_list = data[:]
+    for item in data:
+        if item < 0:
+            data.remove(item)
+    return new_list
+
+
 
 
 def alphabet() -> dict:
@@ -127,7 +168,9 @@ def alphabet() -> dict:
         alphabet()
         >>> {"a": 1, "b": 2 ...}
     """
-    pass
+
+
+    return {let:num for let, num in enumerate([chr(let) for let in range(97,123)],1)}
 
 
 def simple_sort(data: List[int]) -> List[list]:
@@ -139,4 +182,8 @@ def simple_sort(data: List[int]) -> List[list]:
     Returns:
 
     """
-    pass
+        for i in range(len(data)):
+          for j in range(i + 1, len(data)):
+            if data[j-1] > data[j]:
+                data[j-1], data[j] = data[j], data[j-1]
+        return data
