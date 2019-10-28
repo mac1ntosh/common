@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+{% extends "base.html"%}
+{%block navbar%}
+{%endblock%}
+<ul>
+  {%for item in vegetables%}
+  {%if item == "beetroot%}
+  <li>{{item.upper()}}</li>
+  {%else%}
+  <li>{{item}}</li>
+  {%endif%}
+  {%endfor%}
+</ul>
+
+{%block footer%}
+{%endblock%}
+
 </body>
 </html>
